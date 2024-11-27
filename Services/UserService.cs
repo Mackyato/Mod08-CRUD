@@ -12,6 +12,7 @@ namespace Mod08.Services
     public class UserService
     {
         private readonly HttpClient _httpClient;
+        //for the api connection
         private const string BaseUrl = "http://localhost/PDC50/";
 
         public UserService()

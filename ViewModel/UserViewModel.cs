@@ -80,7 +80,11 @@ namespace Mod08.ViewModel
                 _contactNoInput = value;
                 OnPropertyChanged();
             }
-            }
+        }
+
+
+
+        //UserViewModel
         public UserViewModel()
         {
             _userService = new UserService();
@@ -90,11 +94,15 @@ namespace Mod08.ViewModel
             DeleteCommand = new Command(async () => await DeleteUser());
             UpdateUserCommand = new Command(async () => await UpdateUser());
         }
+
+
+        //PUBLIC COMMAND
         public ICommand LoadUserCommand { get; }
         public ICommand AddUserCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand UpdateUserCommand { get; }
 
+        //LOAD USER FROM THE DATABASE
         private async Task LoadUsers()
         {
             var users = await _userService.GetUsersAsync();
@@ -105,6 +113,7 @@ namespace Mod08.ViewModel
             }
         }
 
+        //ADD USER METHOD
         private async Task AddUser()
         {
             if (!string.IsNullOrWhiteSpace(NameInput) &&
@@ -126,6 +135,7 @@ namespace Mod08.ViewModel
             }
         }
 
+        //DELETE METHOD
         private async Task DeleteUser()
         {
             if(SelectedUser != null)
@@ -134,7 +144,10 @@ namespace Mod08.ViewModel
                 await LoadUsers();
             }
         }
-            
+        
+
+
+        //UPDATE METHOD
         private async Task UpdateUser()
         {
             if(SelectedUser != null)

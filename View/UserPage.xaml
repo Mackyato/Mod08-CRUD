@@ -54,6 +54,7 @@
             <Label Text="ContactNo"/>
             <Entry Placeholder="Enter Contact No" Text="{Binding ContactNoInput}"/>
 
+            <!--BUTTONS-->
             <Button Text="Add User" Command="{Binding AddUserCommand}"/>
 
             <Button Text="Delete User" Command="{Binding DeleteCommand}"/>
